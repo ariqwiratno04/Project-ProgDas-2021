@@ -79,10 +79,21 @@ void displayAll(){
     ifstream inFile;
     string lines;
     inFile.open("List Buku.txt");
-    cout << "\n===== DAFTAR BUKU =====\n";
-    while(getline(inFile, lines)){
-        cout << lines << endl;
+    if(inFile.is_open());{
+            bool isEmpty = inFile.peek() == EOF;
+        if(isEmpty == true){
+            cout << "\n====================\n";
+            cout << "\nBelum ada buku yang terdaftar\n";
+        }    
+        else{
+            inFile.seekg(0, ios_base::beg);    
+            cout << "\n===== DAFTAR BUKU =====\n\n";
+            while(getline(inFile, lines)){
+                cout << lines << endl;
+            }
+        }
     }
+    cout << "\n====================\n";
 }
 
 void deleteBook(){
@@ -97,7 +108,7 @@ void clearData(){
     ofstream outFile;
     outFile.open("List Buku.txt", ios::trunc);
     outFile.close();
-    cout << "Data cleared succesfully\n\n";
+    cout << "\nSemua data buku telah terhapus\n\n";
 }
 
 //int main(){
