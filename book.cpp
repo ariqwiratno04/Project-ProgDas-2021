@@ -61,5 +61,7 @@ void addBook(){
     cout << "File gagal terbuka";
 }
 
-void
+void deleteBook(){
+    
+}
 
