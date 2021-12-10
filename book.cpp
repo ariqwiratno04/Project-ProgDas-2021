@@ -26,7 +26,7 @@ class Buku{
             Buku::status = "Dipinjam";
         }
 };
-
+//Function untuk menambah buku
 void addBook(){
     //input data buku dari user
     string inputJudul, inputPenulis, inputTipe, inputPenerbit, inputStatus;
@@ -60,11 +60,20 @@ void addBook(){
     else 
     cout << "File gagal terbuka";
 }
-
+//Function untuk menampilkan semua buku
+void displayAll(){
+    ifstream inFile;
+    string lines;
+    inFile.open("List Buku.txt");
+    while(getline(inFile, lines)){
+        cout << lines << endl;
+    }
+}
+//Function untuk menghapus buku
 void deleteBook(){
     
 }
-
+//Function untuk mengedit data buku
 void editData(){
     
 }
