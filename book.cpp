@@ -69,6 +69,13 @@ void displayAll(){
         cout << lines << endl;
     }
 }
+//Function untuk menghapus semua buku
+void clearData(){
+    ofstream outFile;
+    outFile.open("List Buku.txt", ios::trunc);
+    outFile.close();
+    cout << "Data cleared succesfully";
+}
 //Function untuk menghapus buku
 void deleteBook(){
     
