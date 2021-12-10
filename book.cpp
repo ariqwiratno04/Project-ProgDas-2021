@@ -25,13 +25,25 @@ class Buku{
             else
             Buku::status = "Dipinjam";
         }
+        void display1Book(){
+            cout << Buku::judul << endl;
+            cout << Buku::penulis << endl;
+            cout << Buku::tipe << endl;
+            cout << Buku::penerbit << endl;
+            cout << Buku::tahunTerbit << endl;
+            cout << Buku::status << endl;
+        }
 };
-//Function untuk menambah buku
+
+void addBook();
+
+
 void addBook(){
     //input data buku dari user
     string inputJudul, inputPenulis, inputTipe, inputPenerbit, inputStatus;
     int inputTahun;
-    cout << "INPUT DATA BUKU" << endl;
+    cout << "\nINPUT DATA BUKU" << endl;
+    cin.ignore();
     cout << "Judul\t\t: ";
     getline(cin, inputJudul);
     cout << "Penulis\t\t: ";
@@ -44,6 +56,7 @@ void addBook(){
     getline(cin, inputStatus);
     cout << "Tahun Terbit\t: ";
     cin >> inputTahun; 
+    cout << endl << endl;
     Buku buku1 = Buku(inputJudul, inputPenulis, inputTipe, inputPenerbit, inputStatus, inputTahun);
 
     //output ke file
@@ -56,31 +69,42 @@ void addBook(){
         outFile << "Penerbit\t:" << buku1.penerbit << endl;
         outFile << "TahunTerbit\t:" << buku1.tahunTerbit << endl;
         outFile << "Status\t\t:" << buku1.status << endl << endl;
+        outFile.close();
     }
     else 
     cout << "File gagal terbuka";
 }
-//Function untuk menampilkan semua buku
+
 void displayAll(){
     ifstream inFile;
     string lines;
     inFile.open("List Buku.txt");
+    cout << "\n===== DAFTAR BUKU =====\n";
     while(getline(inFile, lines)){
         cout << lines << endl;
     }
 }
-//Function untuk menghapus semua buku
+
+void deleteBook(){
+
+}
+
+void editData(){
+
+}
+
 void clearData(){
     ofstream outFile;
     outFile.open("List Buku.txt", ios::trunc);
     outFile.close();
-    cout << "Data cleared succesfully";
+    cout << "Data cleared succesfully\n\n";
 }
-//Function untuk menghapus buku
-void deleteBook(){
-    
-}
-//Function untuk mengedit data buku
-void editData(){
-    
-}
+
+//int main(){
+    //addBook();
+    //system("pause");
+    //displayAll();
+    //clearData();
+    //Buku buku1 = Buku("asd","asd","asd","asd","asd",2021);
+    //buku1.display1Book();
+//}
