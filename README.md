@@ -7,15 +7,15 @@ Aplikasi Manager Rental Buku / Perpustakaan
 
 ## Anggota Kelompok
 
-Ahmad Zaki Akmal
+Ahmad Zaki Akmal (TI 21)
 
-Ariq Naufal Fakri Wiratno
+Ariq Naufal Fakri Wiratno (TE 21)
 
-Azfar Azdi Arfakhsyad
+Azfar Azdi Arfakhsyad (TE 21)
 
-Difta Fitrahul Qihaj
+Difta Fitrahul Qihaj (TI 21)
 
-Mas Oki
+Mas Oki (TE 18)
 
 ## How To Use
 
