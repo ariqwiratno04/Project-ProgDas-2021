@@ -71,6 +71,7 @@ void MenuPengembalian(){
         cin >> command3;
         switch(command3){
         case 1:
+            cin.ignore();
             addDataPengembalian();
             break;
         case 2:
