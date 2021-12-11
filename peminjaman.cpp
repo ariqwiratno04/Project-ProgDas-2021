@@ -190,7 +190,7 @@ void Pinjam::updateData(){
 }
 
 
-/*int main(){
+void menuPinjam(){
 	char pilih;
 	do{
 	string a;
@@ -232,4 +232,4 @@ void Pinjam::updateData(){
 }while(pilih != '5');
 
 }
-*/	
+	

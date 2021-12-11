@@ -99,6 +99,12 @@ class Pengembalian{
 	rename("new.txt","DataPengembalian.txt");
     }
 
+    void clearDataPengembalian(){
+    ofstream outFile;
+    outFile.open("DataPengembalian.txt", ios::trunc);
+    outFile.close();
+    cout << "\nSemua data pengembalian telah terhapus\n\n";
+    }
 /*int main(){
 
     return 0;
