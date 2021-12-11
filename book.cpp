@@ -5,11 +5,10 @@ using namespace std;
 
 class Buku{
     public:
-        string judul, penulis, tipe, penerbit, status;
-        int tahunTerbit;
+        string judul, penulis, tipe, penerbit, status, tahunTerbit;
 
         //constructor
-        Buku(string inputJudul, string inputPenulis, string inputTipe, string inputPenerbit, string inputStatus, int inputTahun){
+        Buku(string inputJudul, string inputPenulis, string inputTipe, string inputPenerbit, string inputStatus, string inputTahun){
             Buku::judul = inputJudul;
             Buku::penulis = inputPenulis;
             Buku::tipe = inputTipe;
@@ -41,7 +40,7 @@ void addBook();
 void addBook(){
     //input data buku dari user
     string inputJudul, inputPenulis, inputTipe, inputPenerbit, inputStatus;
-    int inputTahun;
+    string inputTahun;
     cout << "\nINPUT DATA BUKU" << endl;
     cin.ignore();
     cout << "Judul\t\t: ";
@@ -54,7 +53,7 @@ void addBook(){
     getline(cin, inputPenerbit);
     cout << "Status\t\t: ";
     getline(cin, inputStatus);
-    cout << "Tahun Terbit\t: ";
+    cout << "Tahun Terbit \t: ";
     cin >> inputTahun; 
     cout << endl << endl;
     Buku buku1 = Buku(inputJudul, inputPenulis, inputTipe, inputPenerbit, inputStatus, inputTahun);
@@ -97,12 +96,42 @@ void displayAll(){
 }
 
 void deleteBook(){
+    string judul, baru;
+	cout << "===================================================" << endl;
+	cout << "MENGHAPUS DATA BUKU" << endl;
+	cout << "Note : Judul harus sama persis (case sensitive)" << endl;
+	cout << "===================================================" << endl;
+	cout << "Masukkan judul buku : ";
+    cin.ignore();
+	getline(cin, judul);
+	ifstream myfile;
+	myfile.open("List Buku.txt");
+	ofstream newfile;
+	newfile.open("new.txt", ios::app);
 
+	while(getline(myfile, baru)){
+    size_t foundInfo = baru.find(judul);
+    if(foundInfo != string::npos){
+        for(int a=0; a<6; a++){
+				getline(myfile, baru);
+			}
+    }
+    if(!myfile.eof()){
+		newfile<<baru<<"\n";
+		}
+	}
+	myfile.close();
+	newfile.close();
+
+	remove("List Buku.txt");
+	rename("new.txt","List Buku.txt");
 }
 
 void editData(){
-
+    ifstream inFile;
+    inFile.open("List Buku.txt"); 
 }
+
 
 void clearData(){
     ofstream outFile;
@@ -110,7 +139,7 @@ void clearData(){
     outFile.close();
     cout << "\nSemua data buku telah terhapus\n\n";
 }
-
+//UJI COBA
 //int main(){
     //addBook();
     //system("pause");
