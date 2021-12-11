@@ -29,8 +29,9 @@ class Pinjam{
 void Pinjam::setData(){
 	char next;
 	do{
-	
-	string jud, pen, nam, ala, no, kela;
+	ifstream data_buku;
+	data_buku.open("List Buku.txt");
+	string jud, pen, nam, ala, no, kela, baru2, get;
 	
 	cout<<"Masukkan nama : ";
 	getline(cin, nam);
@@ -42,8 +43,21 @@ void Pinjam::setData(){
 	getline(cin, kela);
 	cout<<"Masukkan judul buku : ";
 	getline(cin, jud);
+	while(!data_buku.eof()){
+		getline(data_buku, baru2);
+		if(baru2.find(jud)==8){
+			break;
+		}
+		else if( data_buku.eof() && baru2.find(jud)!=8){
+			cout<<"Data tidak ditemukan"<<endl;
+			system("pause");
+			exit(0);
+		}
+	}
 	cout<<"Masukkan penulis buku : ";
 	getline(cin, pen);
+	
+	
 	cout<<"Tambahkan data lagi <y/n> : ";
 	cin>>next;
 	cin.ignore();
@@ -54,7 +68,6 @@ void Pinjam::setData(){
 	} while(next == 'y');
 	
 }
-
 Pinjam::Pinjam(string intitle , string inpen, string inname , string inal, string inno, string inkel){
 		title = intitle;
 		penulis = inpen;
