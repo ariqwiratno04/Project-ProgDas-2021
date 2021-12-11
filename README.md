@@ -3,7 +3,7 @@ Project akhir mata kuliah Pemrograman Dasar 2021
 
 DTETI UGM
 
-##Anggota Kelompok
+## Anggota Kelompok
 
 Ahmad Zaki Akmal
 
