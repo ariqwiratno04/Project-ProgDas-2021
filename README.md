@@ -17,8 +17,14 @@ Mas Oki
 ## Contents
 book.cpp
 
+book.h
+
 peminjaman.cpp
 
+peminjaman.h
+
 pengembalian.cpp
+
+pengembalian.h
 
 main.cpp
