@@ -5,32 +5,23 @@ using namespace std;
 
 class Buku{
     public:
-        string judul, penulis, tipe, penerbit, status, tahunTerbit;
+        string judul, penulis, tipe, penerbit, tahunTerbit;
 
         //constructor
-        Buku(string inputJudul, string inputPenulis, string inputTipe, string inputPenerbit, string inputStatus, string inputTahun){
+        Buku(string inputJudul, string inputPenulis, string inputTipe, string inputPenerbit, string inputTahun){
             Buku::judul = inputJudul;
             Buku::penulis = inputPenulis;
             Buku::tipe = inputTipe;
             Buku::penerbit = inputPenerbit;
             Buku::tahunTerbit = inputTahun;
-            Buku::status = inputStatus;
         }
-        //edit status buku
-        void changeStatus(){
-            if(Buku::status == "Dipinjam"){
-                Buku::status = "Tersedia";
-            }
-            else
-            Buku::status = "Dipinjam";
-        }
+        //method untuk display
         void display1Book(){
             cout << Buku::judul << endl;
             cout << Buku::penulis << endl;
             cout << Buku::tipe << endl;
             cout << Buku::penerbit << endl;
             cout << Buku::tahunTerbit << endl;
-            cout << Buku::status << endl;
         }
 };
 
@@ -51,12 +42,10 @@ void addBook(){
     getline(cin, inputTipe);
     cout << "Penerbit\t: ";
     getline(cin, inputPenerbit);
-    cout << "Status\t\t: ";
-    getline(cin, inputStatus);
     cout << "Tahun Terbit \t: ";
     cin >> inputTahun; 
     cout << endl << endl;
-    Buku buku1 = Buku(inputJudul, inputPenulis, inputTipe, inputPenerbit, inputStatus, inputTahun);
+    Buku buku1 = Buku(inputJudul, inputPenulis, inputTipe, inputPenerbit, inputTahun);
 
     //output ke file
     ofstream outFile;
@@ -67,7 +56,6 @@ void addBook(){
         outFile << "Tipe\t\t:" << buku1.tipe << endl;
         outFile << "Penerbit\t:" << buku1.penerbit << endl;
         outFile << "TahunTerbit\t:" << buku1.tahunTerbit << endl;
-        outFile << "Status\t\t:" << buku1.status << endl << endl;
         outFile.close();
     }
     else 
